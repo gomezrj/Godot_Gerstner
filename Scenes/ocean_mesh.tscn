@@ -1,0 +1,28 @@
+[gd_scene format=4 uid="uid://byjq4f1cjbbfn"]
+
+[ext_resource type="Shader" uid="uid://c8sayl6i53p17" path="res://Shaders/ocean.gdshader" id="1_uxvkj"]
+[ext_resource type="Script" uid="uid://c66ypbckttn1u" path="res://Scripts/gerstner_ocean.gd" id="2_bg8j3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bg8j3"]
+render_priority = 0
+shader = ExtResource("1_uxvkj")
+shader_parameter/width_x = 0.0
+shader_parameter/width_z = 0.0
+shader_parameter/ocean_color = Vector3(0, 0, 0)
+shader_parameter/show_domain_warping = false
+shader_parameter/show_lighting = false
+shader_parameter/show_foam = false
+shader_parameter/show_spray = false
+shader_parameter/waves_num = 0
+shader_parameter/waves = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a0pi5"]
+size = Vector2(100, 100)
+subdivide_width = 700
+subdivide_depth = 700
+
+[node name="OceanMesh" type="MeshInstance3D" unique_id=380882256]
+material_override = SubResource("ShaderMaterial_bg8j3")
+mesh = SubResource("PlaneMesh_a0pi5")
+script = ExtResource("2_bg8j3")
+noise_intensity = 0.0

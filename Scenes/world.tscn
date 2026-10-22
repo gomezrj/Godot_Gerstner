@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cdr34r1vn063r"]
+
+[ext_resource type="PackedScene" uid="uid://byjq4f1cjbbfn" path="res://Scenes/ocean_mesh.tscn" id="1_a02cp"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_a02cp"]
+rayleigh_coefficient = 1.0
+rayleigh_color = Color(0.25490198, 0.44313726, 0.96862745, 1)
+mie_eccentricity = 0.9
+ground_color = Color(0.28627452, 0.5411765, 0.8901961, 1)
+
+[sub_resource type="Sky" id="Sky_go701"]
+sky_material = SubResource("PhysicalSkyMaterial_a02cp")
+
+[sub_resource type="Environment" id="Environment_5a7ea"]
+background_mode = 2
+sky = SubResource("Sky_go701")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[node name="World" type="Node3D" unique_id=1643981235]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1348995044]
+transform = Transform3D(0.9324086, 0.17674941, -0.31523675, 0.20438972, 0.46147454, 0.86328804, 0.29805925, -0.8693684, 0.39415672, -6.9373093, 23.97626, 72.44567)
+light_energy = 3.0
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1602836176]
+environment = SubResource("Environment_5a7ea")
+
+[node name="OceanMesh" parent="." unique_id=380882256 instance=ExtResource("1_a02cp")]
+target_steepness = 1.5
+longest_wavelength = 20.0
+shortest_wavelength = 0.7
+amplitude_falloff = 2.0
+main_direction = Vector2(0.55, -0.75)
+swell_spread_degrees = 20.0
+ripple_spread_degrees = 50.0
+ocean_color = Color(0, 0.14901961, 0.25882354, 1)
+show_lighting = true
+
+[node name="Level view" type="Camera3D" parent="." unique_id=1113465623]
+transform = Transform3D(-1, -2.2626683e-08, 8.444391e-08, 1.894261e-08, 0.8868979, 0.46196544, -8.5345874e-08, 0.46196544, -0.8868979, 0, 9.172272, -52.435593)
+
+[node name="Top view" type="Camera3D" parent="." unique_id=1595078593]
+transform = Transform3D(-1, -2.2626683e-08, 8.444391e-08, 5.0226102e-08, 0.64190465, 0.7667844, -7.155473e-08, 0.7667844, -0.64190465, 0, 58.800453, -68.36397)
+current = true
+fov = 50.0
